@@ -1,0 +1,45 @@
+
+h1, h2{
+  font-family: sans-serif;
+}
+#heading{
+  position: relative;
+  display: inline-block;
+  background: purple;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+nav{
+  position: absolute;
+  display: inline-block;
+  margin-left: 500px;
+  background: red;
+}
+#homePage{
+  background: purple;
+  margin-bottom: 20px;
+}
+#addProductForm{
+  background: red;
+  margin-bottom: 20px;
+}
+#inputIdDiv{
+  background: purple;
+  margin-bottom: 20px;
+}
+#delForm{
+  background: red;
+  margin-bottom: 20px;
+}
+#adminPage{
+  background: purple;
+}
+#loginForm{
+  background: red;
+}
+#registerForm{
+  background: purple;
+}
+li{
+  list-style: none;
+}
