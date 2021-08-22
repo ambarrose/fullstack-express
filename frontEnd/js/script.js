@@ -4,7 +4,7 @@ console.log(sessionStorage);
 $(document).ready(function(){
 
 
-  $('#result').hide();
+$('#result').hide();
     $('#adminPage').hide();
 
 $('#home').click(function(){
@@ -62,7 +62,7 @@ $('#view').click(function(){
   })//ajax
 })//view button click
 
-//add a product
+// Products Controls::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 $('#addProduct').click(function(){
   event.preventDefault();
   let name = $('#a-name').val();
@@ -172,8 +172,156 @@ $('#deleteProduct').click(function(){
   }//if
 
 })//deleteProduct
+// Project controls ends
 
-// User Registration
+// Projects Controls::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$('#addProject').click(function(){
+  event.preventDefault();
+  let projectTitle = $('#projectTitle').val();
+  let projectDecription = $('#projectDecription').val();
+  let projectImg = $('#projectImg').val();
+  let userid =  sessionStorage.getItem('userID');
+  console.log(userid);
+  console.log(projectImg);
+  if (projectTitle == ' ' || projectDecription == ' ' || projectImg == ' '){
+    alert('Please enter all details');
+  } else {
+    $.ajax({
+      url : `${url}/addProject`,
+      type : 'POST',
+      data :{
+        title: projectTitle,
+        description: projectDecription,
+        image_url:projectImg,
+        author:userid,
+        user_id:userid
+      },
+      success : function(project){
+        console.log(project);
+        alert ('project added');
+      },
+      error : function(){
+        console.log('error: cannot call api');
+      }//error
+    })//ajax
+  }//else
+});//addProduct
+
+//update the product
+$('#updateProduct').click(function(){
+  event.preventDefault();
+  let productId = $('#productId').val();
+  let productName = $('#productName').val();
+  let productPrice = $('#productPrice').val();
+  let imageurl = $('#imageurl').val();
+  let userid =sessionStorage.getItem('userID');
+  console.log(productId, productName, productPrice, imageurl, userid);
+  if ( productId == ''){
+    alert('Please enter product id for updating');
+  } else {
+    $.ajax({
+      url: `${url}/updateProduct/${productId}`,
+      type: 'PATCH',
+      data:{
+        name : productName,
+        price : productPrice,
+        image_url : imageurl,
+        user_id: userid
+      },
+      success: function(data){
+        console.log(data);
+        if(data == '401 error: user has no permission to update'){
+          alert('401 error: user has no permission to update');
+
+        } else {
+          alert('updated');
+        }//else
+
+        $('#projectId').val('');
+        $('#projectTitle').val('');
+        $('#projectDecription').val('');
+        $('#projectImg').val('');
+
+
+      }, //success
+      error: function(){
+        console.log('error:cannot call api');
+      }//error
+    })//ajax
+  }//if
+})//updateProduct
+
+//delete product
+$('#deleteProject').click(function(){
+  event.preventDefault();
+  if (!sessionStorage['userID']){
+    alert('401 permission denied');
+    return;
+  };
+  let projectId = $('#delProductId').val();
+  console.log(productId);
+  if (productId == ''){
+    alert('Please enter the product id to delete the product');
+  } else {
+    $.ajax({
+      url : `${url}/deleteProduct/${productId}`,
+      type:'DELETE',
+      data :{
+        user_id : sessionStorage['userID']
+      },
+      success : function(data){
+        console.log(data);
+        if (data =='deleted'){
+          alert('deleted');
+          $('#delProductId').val('');
+        } else {
+          alert('Enter a valid id');
+        } //else
+      }, //success
+      error:function(){
+        console.log('error: cannot call api');
+      }//error
+    })//ajax
+  }//if
+
+})//deleteProduct
+
+
+// display users projects in list on admin page
+$('#showPro').click(function(){
+$.ajax({
+  url:`${url}/allProjectsFromDB`,
+  type: 'GET',
+  dataType : 'json',
+  success : function(projectsFromMongo){
+    console.log(projectsFromMongo);
+    var i;
+    document.getElementById('projectList').innerHTML ="";
+    for(i=0;i<projectsFromMongo.length;i++){
+    document.getElementById('projectList').innerHTML +=
+    `<div class="project-strip">
+        <div>${projectsFromMongo[i].title}</div>
+        <div class='project-list-date'>21.08.21</div>
+        <div class='up-del'>
+    <i class="fas fa-pen"></i>
+    <i class="fas fa-trash"></i>
+        </div>`
+    }
+  },
+  error:function(){
+
+  }
+})//ajax
+})
+// Create project button
+$("#createBtn").click(function(){
+$('#addProjectForm').fadeIn()
+$('.admin-proj-section').fadeOut()
+})
+
+// Project controls ends
+
+// User Registration:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 $('#r-submit').click(function(){
   //event.preventDefault()//this prevents code breaking when no data is found
 
@@ -215,7 +363,7 @@ $('#r-submit').click(function(){
 
 })//r-submit click
 
-// User login
+// User login::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 $('#submit').click(function(){
   event.preventDefault();
   let username = $('#username').val();
@@ -246,7 +394,7 @@ $('#submit').click(function(){
            sessionStorage.setItem('userID', user['_id']);
            sessionStorage.setItem('userName',user['username']);
            sessionStorage.setItem('userEmail',user['email']);
-           console.log(sessionStorage);
+
         }
       },//success
       error:function(){
@@ -263,6 +411,6 @@ $('#logout').click(function(){
   console.log('You are logged out');
   console.log(sessionStorage);
 });
-
+$('.header-user').text(sessionStorage.getItem('userName'));
 
 });//document.ready
