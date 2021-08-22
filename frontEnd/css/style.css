@@ -10,10 +10,12 @@ h1, h2{
   text-transform: uppercase;
 }
 nav{
-  position: absolute;
-  display: inline-block;
-  margin-left: 500px;
-  background: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:7rem;
+  border-bottom: 5px solid #1b1b1b;
+
 }
 #homePage{
   background: purple;
@@ -42,4 +44,52 @@ nav{
 }
 li{
   list-style: none;
+}
+
+
+
+.project-strip {
+  height:60px;
+  display: flex;
+  justify-content: space-between;
+  padding:20px;
+  border-bottom:1px solid #9c9c9c;
+}
+
+.up-del {
+  display: flex;
+  gap:30px;
+  align-self: flex-end;
+  justify-content:flex-end;
+}
+.project-strip div {
+  width:33%;
+}
+
+.project-list-date {
+  text-align: center;
+}
+div#projectList > div:first-child {
+  border-top:1px solid #9c9c9c!important;
+}
+
+.admin-proj-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my-btn {
+  background-color:#1b1b1b;
+  color: white;
+  text-align: center;
+  width:200px;
+  height: auto;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+#addProjectForm, #delProjectForm, #updateProjectForm  {
+  display: none;
 }

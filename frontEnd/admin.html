@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../frontEnd/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <!-- custom -->
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+
+<body class="container">
+  <nav>
+    <h2 class="logo">Logo</h2>
+    <h2 class="header-user">Name</h2>
+  </nav>
+  <!-- ::::::::::::::::::::::::::  Add Project  ::::::::::::::::::::::::::::: -->
+
+  <form id="addProjectForm" class=" py-5 px-5">
+    <h1>Add project</h1> <br>
+    <label class="mr-5" for="a-projectId"> Enter project title </label>
+    <!-- Title Input -->
+    <input type="text" class="ml-5 rounded-pill" id="projectTitle" name="inputId">
+    <br><br>
+
+    <!-- Description input -->
+    <label class="mr-4" for="a-price"> Project Description </label>
+    <input type="text" id="projectDecription" name="projectPrice" class="rounded-pill">
+    <br><br>
+
+    <!-- url input -->
+    <label class="mr-5" for="projectImg"> Enter the image url </label>
+    <input id="projectImg" type="text" name="projectImg">
+    <br><br>
+
+    <button id="addProject" name="addProject" type="submit" class="btn btn-primary rounded-pill">Add project</button>
+  </form>
+
+
+  <!-- :::::::::::::::::::::::Update Project ::::::::::::::::::::::-->
+
+  <div>
+    <form id="updateProjectForm" class="py-5 px-5">
+      <h1 class=""> Update project Form </h1> <br><br>
+      <div class="row"></div>
+      <label class="mr-5 " for="projectId"> Enter project Id:</label>
+      <input type="text" class="ml-5 rounded-pill" id="projectId" name="inputId">
+      <br><br>
+
+      <label class="mr-4 " for="projectName"> Enter name of the project </label>
+      <input type="text" id="projectName" name="projectName" class="rounded-pill">
+      <br><br>
+
+      <label class="mr-4 " for="projectPrice"> Enter price of the project </label>
+      <input type="number" id="projectPrice" name="projectPrice" class="rounded-pill">
+      <br><br>
+
+      <label class="mr-5 " for="imageurl"> Enter the image url </label>
+      <input type="text" class="ml-5 rounded-pill" id="imageurl" name="imageurl">
+      <br><br>
+
+      <button id="updateproject" name="projectButton" type="submit" class="btn btn-primary rounded-pill">Update project</button>
+    </form>
+  </div>
+
+  <!-- Delete a project -->
+  <form id="delProjectForm" class="py-5 px-5">
+    <label class="mr-5 " for="delprojectId"> Enter project Id to delete: </label>
+    <input type="text" class="ml-5 rounded-pill" id="delprojectId" name="inputId">
+    <br><br>
+    <button id="deleteproject" name="projectButton" type="submit" class="btn btn-primary rounded-pill">Delete project</button>
+  </form>
+  <button id="showPro">
+    show projects
+  </button>
+
+
+  <!-- Project section::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <div class="admin-proj-section">
+    <div class="admin-proj-header my-5">
+      <h3>Current Projects</h3>
+      <div id="createBtn" class="my-btn">Create New Project</div>
+    </div>
+    <!-- List of projects begins -->
+    <div id="projectList" class='my-5'>
+      <!-- Projects injected here -->
+    </div>
+  </div>
+
+
+  <!--Scripts -->
+  <script src="../frontEnd/node_modules/jquery/dist/jquery.min.js">
+  </script>
+  <script src="../frontEnd/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>
