@@ -10,7 +10,7 @@ const product = require('./Products.json');
 const Product = require('./models/products.js');
 const User = require('./models/users.js');
 
-const port = 5000;
+const port = 3001;
 
 //use ends here
 app.use((req,res,next)=>{
