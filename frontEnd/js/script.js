@@ -5,18 +5,18 @@ $(document).ready(function(){
 
 
 $('#result').hide();
-    $('#adminPage').hide();
+    $('.adminPage').hide();
 
 $('#home').click(function(){
   $('#result').hide();
-    $('#adminPage').hide();
-    $('#homePage').show();
+    $('.adminPage').hide();
+    $('.homePage').show();
 });
 
 $('#admin').click(function(){
-  $('#homePage').hide();
+  $('.homePage').hide();
     $('#result').hide();
-    $('#adminPage').show();
+    $('.adminPage').show();
 });
 
 let url;//declare url as a variable in es6
@@ -38,8 +38,8 @@ $.ajax({
 //view the products from database
 $('#view').click(function(){
   console.log(url);
-  $('#homePage').hide();
-  $('#adminPage').hide();
+  $('.homePage').hide();
+  $('.adminPage').hide();
   $('#result').show();
   $.ajax({
     url:`${url}/allProductsFromDB`,

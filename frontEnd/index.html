@@ -10,18 +10,15 @@
   <title>Document</title>
 </head>
 
-<body class="bg-dark container ">
+<body>
 
-  <div id="heading">
-    <h1 class="text-light py-4 px-5 rounded-pill">Portfolio</h1>
-  </div>
-  <div id="heading">
+  <div class="heading">
     <h1 class="text-light py-4 px-5 rounded-pill">Portfolio</h1>
   </div>
 
 <nav class="mt-5">
 
-        <button id="home" type="button" name="button" class="btn btn-primary btn-md mr-3 rounded-pill">Home</button>
+        <button id="home" type="button" name="button" class="btn btn-primary btn-md mr-3 rounded-pill"><a class="text-light"  href="home.html">Home</a></button>
 
         <button id="view" type="button" name="button" class="btn btn-primary btn-md mr-3 rounded-pill">View</button>
 
@@ -29,7 +26,7 @@
   </nav>
 
   <!-- home page -->
-  <div id="homePage" class="py-5 px-5">
+  <div class="homePage" class="py-5 px-5">
   <h2 class="text-light">Home page</h2>
   <p class="text-light">This app will enable the user to store, edit and delete their products, if they are have admin privileges. Otherwise all visitors of this app can view the products. </p>
   <a href="admin.html">See admin panel</a>
@@ -40,7 +37,7 @@
   </div>
 
   <!--add a product-->
-    <form id="addProductForm" class=" py-5 px-5">
+    <form class="addProductForm" class=" py-5 px-5">
       <h1 class="text-light"> Add Product Form </h1> <br>
       <label class="mr-5 text-light" for="a-productId"> Enter product Id: </label>
       <input type="text" class="ml-5 rounded-pill" id="a-productId" name="inputId" >
@@ -62,7 +59,7 @@
     </form>
 
     <!-- Input product details for update -->
-      <div id="inputIdDiv" class="">
+      <div class="inputIdDiv" class="">
         <form id="productForm" class="py-5 px-5">
           <h1 class="text-light"> Update Product Form </h1>   <br><br>
           <label class="mr-5 text-light" for="productId"> Enter product Id: </label>
@@ -86,7 +83,7 @@
       </div>
 
       <!-- Delete a product -->
-      <form id="delForm" class="py-5 px-5">
+      <form class="delForm" class="py-5 px-5">
         <label class="mr-5 text-light" for="delProductId"> Enter product Id to delete: </label>
         <input type="text" class="ml-5 rounded-pill" id="delProductId" name="inputId" >
         <br><br>
@@ -96,7 +93,7 @@
 
 
   <!-- admin page -->
-  <div id="adminPage" class="py-5 px-5">
+  <div class="adminPage" class="py-5 px-5">
     <button id="login" class="btn btn-sm" type="button" name="button">Login</button>
     <button id="logout" class="btn btn-sm" type="button" name="button">Logout</button>
 
@@ -104,7 +101,7 @@
   </div>
 
   <!-- login form -->
-  <form id="loginForm" class="py-5 px-5 my-4 rounded-pill">
+  <form class="loginForm" class="py-5 px-5 my-4 rounded-pill">
     <label for="username" class="text-light"> Username: </label>
     <input type="text" id="username" name="username" class="form-control" value="">
     <br> <br>
@@ -116,7 +113,7 @@
 
   <!-- Register Form -->
   <!-- <form action="/loginUser" method="post"> -->
-    <form id="registerForm" class="py-5 px-5 mt-4">
+    <form class="registerForm" class="py-5 px-5 mt-4">
       <div class="form-group text-light">
         <label for="r-username">Username</label>
         <input type="text" name="r-username" class="form-control" id="r-username" aria-describedby="emailHelp">
@@ -139,16 +136,12 @@
 
 
   <script src="../frontEnd/node_modules/jquery/dist/jquery.min.js">
-
   </script>
   <script src="../frontEnd/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js">
-
   </script>
   <!-- <script src="js/config.js">
-
   </script> -->
   <script src="js/script.js">
-
   </script>
 </body>
 </html>
