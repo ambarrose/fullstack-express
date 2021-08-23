@@ -165,6 +165,9 @@ li{
 .project-list-date {
   text-align: center;
 }
+.project-list-title {
+  color: black;
+}
 div#projectList > div:first-child {
   border-top:1px solid #9c9c9c!important;
 }
@@ -184,6 +187,10 @@ div#projectList > div:first-child {
   height: auto;
   padding: 20px 0;
   cursor: pointer;
+}
+
+.fa{
+  color:black;
 }
 
 #addProjectForm, #delProjectForm, #updateProjectForm  {
