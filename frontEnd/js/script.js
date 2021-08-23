@@ -288,30 +288,90 @@ $('#deleteProject').click(function(){
 
 
 // display users projects in list on admin page
-$('#showPro').click(function(){
-$.ajax({
-  url:`${url}/allProjectsFromDB`,
-  type: 'GET',
-  dataType : 'json',
-  success : function(projectsFromMongo){
-    console.log(projectsFromMongo);
-    var i;
-    document.getElementById('projectList').innerHTML ="";
-    for(i=0;i<projectsFromMongo.length;i++){
-    document.getElementById('projectList').innerHTML +=
-    `<div class="project-strip">
-        <div>${projectsFromMongo[i].title}</div>
-        <div class='project-list-date'>21.08.21</div>
-        <div class='up-del'>
-    <i class="fas fa-pen"></i>
-    <i class="fas fa-trash"></i>
-        </div>`
-    }
-  },
-  error:function(){
+$('#submit').click(function(){
+  $.ajax({
+    url: `${url}/allProjectsFromDB`,
+    type: 'GET',
+    dataType: 'json',
+    success: function(projectsFromMongo) {
 
-  }
-})//ajax
+      var i;
+      // document.getElementById('projectList').innerHTML ="";
+      for (i = 0; i < projectsFromMongo.length; i++) {
+        // flex parent
+        var projectStrip = document.createElement('div');
+        projectStrip.classList.add('project-strip');
+        $('#projectList').append(projectStrip);
+
+        // flex children::::::::::::::::::::::::::::::::::::::
+        // Title
+        var projectListTitle = document.createElement('div');
+        projectListTitle.classList.add('project-list-title');
+        projectStrip.append(projectListTitle);
+        projectListTitle.textContent = projectsFromMongo[i]
+          .title
+        // Date Added
+        var projectListDate = document.createElement('div');
+        projectListDate.classList.add('project-list-date');
+        projectStrip.append(projectListDate);
+        projectListDate.textContent = "21.12.21"
+
+        // Controls
+        var projectListControl = document.createElement('div');
+        projectListControl.classList.add('up-del');
+        projectListControl.innerHTML = `<i class='fas fa-pen control' value=${projectsFromMongo[i].title}></i>
+        <i class='fas fa-trash delete'></i>`
+        projectStrip.append(projectListControl);
+        projectListControl.value = projectsFromMongo[i].title;
+
+      }
+
+      document.addEventListener('click', function(e) {
+          // define the target objects by class name
+          if (e.target.classList[2] === 'delete') {
+            // find a match between a button value and project name
+            for (var i = 0; i < projectsFromMongo.length; i++) {
+              if (projectsFromMongo[i].title === e.target.parentNode.value) {
+                selection = i;
+                console.log(projectsFromMongo[selection].title);
+                e.target.parentNode.parentNode.remove()
+                deleteProject()
+              }
+            }
+          }
+        });// Event listner ends
+        function deleteProject(){
+          event.preventDefault();
+          // if (!sessionStorage['userID']) {
+          //   alert('401 permission denied');
+          //   return;
+          // };
+          let projectId = projectsFromMongo[selection]._id;
+            $.ajax({
+              url: `${url}/deleteProject/${projectId}`,
+              type: 'DELETE',
+              data: {
+                user_id: sessionStorage['userID']
+              },
+              success: function(data) {
+                console.log(data);
+                if (data == 'deleted') {
+                  alert('deleted');
+                  $('#delProjectId').val('');
+                } else {
+                  alert('Enter a valid id');
+                } //else
+              }, //success
+              error: function() {
+                console.log('error: cannot call api');
+              } //error
+            }) //ajax
+        }
+    },
+    error: function() {
+
+    }
+  }) //ajax
 })
 // Create project button
 $("#createBtn").click(function(){
@@ -322,6 +382,20 @@ $('.admin-proj-section').fadeOut()
 // Project controls ends
 
 // User Registration:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+//  register button opens register Overlay
+$('#register').click(function(){
+  $('#registerOverlay').css('display', 'block');
+  return false;
+})
+
+$('#registerExit').click(function(){
+  $('#registerOverlay').css('display', 'none');
+})
+
+
+
+
 $('#r-submit').click(function(){
   //event.preventDefault()//this prevents code breaking when no data is found
 
@@ -348,10 +422,11 @@ $('#r-submit').click(function(){
           alert('Please login to manipulate the products data');
 
         }else {
-          alert('username taken already. Please try another name');
+          alert('success');
           $('#r-username').val('');
           $('#r-email').val('');
           $('#r-password').val('');
+          $('#registerOverlay').css('display', 'none')
         } //else
 
       }, //success
@@ -394,7 +469,7 @@ $('#submit').click(function(){
            sessionStorage.setItem('userID', user['_id']);
            sessionStorage.setItem('userName',user['username']);
            sessionStorage.setItem('userEmail',user['email']);
-
+           $('#loginOverlay').css('display', 'none')
         }
       },//success
       error:function(){
@@ -410,6 +485,7 @@ $('#logout').click(function(){
   sessionStorage.clear();
   console.log('You are logged out');
   console.log(sessionStorage);
+  $('#loginOverlay').css('display', 'flex')
 });
 $('.header-user').text(sessionStorage.getItem('userName'));
 
