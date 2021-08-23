@@ -288,7 +288,7 @@ $('#deleteProject').click(function(){
 
 
 // display users projects in list on admin page
-$('#showPro').click(function(){
+$('#submit').click(function(){
 $.ajax({
   url:`${url}/allProjectsFromDB`,
   type: 'GET',
@@ -322,6 +322,20 @@ $('.admin-proj-section').fadeOut()
 // Project controls ends
 
 // User Registration:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+//  register button opens register Overlay
+$('#register').click(function(){
+  $('#registerOverlay').css('display', 'block');
+  return false;
+})
+
+$('#registerExit').click(function(){
+  $('#registerOverlay').css('display', 'none');
+})
+
+
+
+
 $('#r-submit').click(function(){
   //event.preventDefault()//this prevents code breaking when no data is found
 
@@ -348,10 +362,11 @@ $('#r-submit').click(function(){
           alert('Please login to manipulate the products data');
 
         }else {
-          alert('username taken already. Please try another name');
+          alert('success');
           $('#r-username').val('');
           $('#r-email').val('');
           $('#r-password').val('');
+          $('#registerOverlay').css('display', 'none')
         } //else
 
       }, //success
@@ -394,7 +409,7 @@ $('#submit').click(function(){
            sessionStorage.setItem('userID', user['_id']);
            sessionStorage.setItem('userName',user['username']);
            sessionStorage.setItem('userEmail',user['email']);
-
+           $('#loginOverlay').css('display', 'none')
         }
       },//success
       error:function(){
@@ -410,6 +425,7 @@ $('#logout').click(function(){
   sessionStorage.clear();
   console.log('You are logged out');
   console.log(sessionStorage);
+  $('#loginOverlay').css('display', 'flex')
 });
 $('.header-user').text(sessionStorage.getItem('userName'));
 
