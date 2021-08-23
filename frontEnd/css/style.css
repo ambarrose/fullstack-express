@@ -98,23 +98,15 @@ nav{
 .adminPage{
   background: purple;
 }
-<<<<<<< HEAD
-.loginForm{
-  background: red;
-}
 .registerForm{
   background: purple;
 }
 /* original home page ENDS */
-=======
 
->>>>>>> e52db0b3511a58338d89f82e7f8e686402b92597
 li{
   list-style: none;
 }
 
-<<<<<<< HEAD
-=======
 /* Login overlay begins! */
 .login-overlay {
   position: fixed;
