@@ -46,14 +46,9 @@ nav{
   background: #1b1b1b;
   color: #f7f7f7;
 }
-/* .my-btn:hover{
-  background: #f7f7f7;
-  color: #1b1b1b;
-  border: 2px solid #1b1b1b;
-} */
-.accordion-title{
-  font-size: 100px;
-  text-align: left;
+
+#accordionExample {
+  border: none;
 }
 .accordion-item{
   border-bottom: 5px solid #1b1b1b;
@@ -63,22 +58,24 @@ nav{
   background-color: #fff;
   width: 1115px;
 }
+.accordion-title{
+  font-size: 100px;
+  text-align: left;
+  border: none;
+}
 .accordion-body{
   display: inline-block;
-  width: 700px;
+  width: 400px;
+}
+.project-name{
+  padding-bottom: 160px;
 }
 .item1{
   display: inline-block;
   border: 2px solid black;
-  width: 180px;
-  height: 180px;
-}
-.item2{
-  display: inline-block;
-  border: 2px solid #1b1b1b;
-  margin-left: 10px;
-  width: 180px;
-  height: 180px;
+  width: 600px;
+  height: 300px;
+  margin-left: 100px;
 }
 
 
