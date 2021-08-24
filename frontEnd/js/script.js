@@ -181,6 +181,7 @@ $('#addProject').click(function(){
   let projectDecription = $('#projectDecription').val();
   let projectImg = $('#projectImg').val();
   let userid =  sessionStorage.getItem('userID');
+  let date = new Date(),
   console.log(userid);
   console.log(projectImg);
   if (projectTitle == ' ' || projectDecription == ' ' || projectImg == ' '){
@@ -194,7 +195,8 @@ $('#addProject').click(function(){
         description: projectDecription,
         image_url:projectImg,
         author:userid,
-        user_id:userid
+        user_id:userid,
+        date: new Date(),
       },
       success : function(project){
         console.log(project);
