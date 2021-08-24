@@ -2,40 +2,103 @@
 h1, h2{
   font-family: sans-serif;
 }
-#heading{
+a {
+  text-decoration: none;
+}
+.heading{
   position: relative;
   display: inline-block;
   background: purple;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
+
+/* new homePage section */
 nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height:7rem;
+  height:130px;
   border-bottom: 5px solid #1b1b1b;
+}
+.homePageSection{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:80px;
+  border-bottom: 5px solid #1b1b1b;
+}
+.home-projects{
+  height:60px;
+  border-bottom: 5px solid #1b1b1b;
+}
+.link-admin{
+  text-align: center;
+  color: #1b1b1b;
+  border: 2px solid #1b1b1b;
+  width:200px;
+  height: auto;
+  padding: 20px 0;
+  cursor:pointer;
+}
+.link-admin:hover
+{
+  background: #1b1b1b;
+  color: #f7f7f7;
+}
 
+#accordionExample {
+  border: none;
 }
-#homePage{
-  background: purple;
-  margin-bottom: 20px;
+.accordion-item{
+  border-bottom: 5px solid #1b1b1b;
 }
-#addProductForm{
+#accordianBtn{
+  border: none;
+  background-color: #fff;
+  width: 1115px;
+}
+.accordion-title{
+  font-size: 100px;
+  text-align: left;
+  border: none;
+}
+.accordion-body{
+  display: inline-block;
+  width: 400px;
+}
+.project-name{
+  padding-bottom: 160px;
+}
+.item1{
+  display: inline-block;
+  border: 2px solid black;
+  width: 600px;
+  height: 300px;
+  margin-left: 100px;
+}
+
+
+/* original home page */
+.addProductForm{
   background: red;
   margin-bottom: 20px;
 }
-#inputIdDiv{
+.inputIdDiv{
   background: purple;
   margin-bottom: 20px;
 }
-#delForm{
+.delForm{
   background: red;
   margin-bottom: 20px;
 }
-#adminPage{
+.adminPage{
   background: purple;
 }
+.registerForm{
+  background: purple;
+}
+/* original home page ENDS */
 
 li{
   list-style: none;
@@ -134,11 +197,6 @@ li{
 
 
 /* Login overlay ends! */
-
-
-
-
-
 .project-strip {
   height:60px;
   display: flex;
@@ -146,12 +204,6 @@ li{
   padding:20px;
   border-bottom:1px solid #9c9c9c;
 }
-
-
-
-
-
-
 .up-del {
   display: flex;
   gap:30px;
@@ -190,7 +242,7 @@ div#projectList > div:first-child {
 }
 
 .fa{
-  color:black;
+  color:#1b1b1b;
 }
 
 #addProjectForm, #delProjectForm, #updateProjectForm  {
