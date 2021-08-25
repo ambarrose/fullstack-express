@@ -319,7 +319,7 @@ $('#submit').click(function(){
         // Controls
         var projectListControl = document.createElement('div');
         projectListControl.classList.add('up-del');
-        projectListControl.innerHTML = `<i class='fas fa-pen control' value=${projectsFromMongo[i].title}></i>
+        projectListControl.innerHTML = `<i class='fas fa-pen control edit' value=${projectsFromMongo[i].title}></i>
         <i class='fas fa-trash delete'></i>`
         projectStrip.append(projectListControl);
         projectListControl.value = projectsFromMongo[i].title;
@@ -367,16 +367,19 @@ $('#submit').click(function(){
               } //error
             }) //ajax
         }
+
     },
     error: function() {
 
     }
   }) //ajax
 })
+
+
 // Create project button
 $("#createBtn").click(function(){
 $('#addProjectForm').fadeIn()
-$('.admin-proj-section').fadeOut()
+// $('.admin-proj-section').fadeOut()
 })
 
 // Project controls ends
@@ -486,6 +489,7 @@ $('#logout').click(function(){
   console.log('You are logged out');
   console.log(sessionStorage);
   $('#loginOverlay').css('display', 'flex')
+  location.href = "index.html";
 });
 $('.header-user').text(sessionStorage.getItem('userName'));
 
