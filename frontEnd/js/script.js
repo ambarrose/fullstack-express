@@ -180,8 +180,7 @@ $('#addProject').click(function(){
   let projectTitle = $('#projectTitle').val();
   let projectDecription = $('#projectDecription').val();
   let projectImg = $('#projectImg').val();
-  let userid =  sessionStorage.getItem('userID');
-  let date = new Date(),
+  let userid = sessionStorage.getItem('userID');
   console.log(userid);
   console.log(projectImg);
   if (projectTitle == ' ' || projectDecription == ' ' || projectImg == ' '){

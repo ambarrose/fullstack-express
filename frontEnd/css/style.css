@@ -67,7 +67,16 @@ nav{
 .accordion-body{
   display: inline-block;
   height:500px;
-  overflow: auto;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
 }
 .about{
   border-bottom: 3px solid #1b1b1b;
