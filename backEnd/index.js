@@ -116,8 +116,7 @@ app.post('/addProject',(req,res)=>{
     title : req.body.title,
     description: req.body.description,
     image_url : req.body.image_url,
-    author: req.body.author,
-    date: req.body.date
+    author: req.body.author
   });
   //save to the database and notify the user
   dbProject.save().then(result=>{
@@ -182,12 +181,6 @@ app.get('/projects/p=:id',(req,res)=>{
     }
   }
 });
-
-
-
-
-
-
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //                                  Users
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
