@@ -142,6 +142,7 @@ li{
   width: 300px;
 }
 
+
 .login-buttons {
   width: 75%;
   display: flex;
@@ -250,8 +251,19 @@ div#projectList > div:first-child {
   cursor: pointer;
 }
 
+.logout-btn {
+  background-color:white;
+  color: #1b1b1b;
+  border: 1px solid #1b1b1b;
+  text-align: center;
+  padding: 5px 10px;
+  height: auto;
+  cursor: pointer;
+}
+
 .fa{
   color:#1b1b1b;
+
 }
 
 #addProjectForm, #delProjectForm, #updateProjectForm  {
