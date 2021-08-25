@@ -5,6 +5,7 @@ h1, h2{
 a {
   text-decoration: none;
 }
+
 .heading{
   position: relative;
   display: inline-block;
@@ -12,7 +13,6 @@ a {
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-
 /* new homePage section */
 nav{
   display: flex;
@@ -46,14 +46,9 @@ nav{
   background: #1b1b1b;
   color: #f7f7f7;
 }
-/* .my-btn:hover{
-  background: #f7f7f7;
-  color: #1b1b1b;
-  border: 2px solid #1b1b1b;
-} */
-.accordion-title{
-  font-size: 100px;
-  text-align: left;
+
+#accordionExample {
+  border: none;
 }
 .accordion-item{
   border-bottom: 5px solid #1b1b1b;
@@ -63,22 +58,33 @@ nav{
   background-color: #fff;
   width: 1115px;
 }
+.accordion-title{
+  font-size: 100px;
+  text-align: left;
+  border: none;
+}
 .accordion-body{
   display: inline-block;
-  width: 700px;
+}
+.about{
+  border-bottom: 3px solid #1b1b1b;
+}
+.project-section{
+  display: inline-block;
+}
+.project-name{
+  display: inline-block;
+  padding-bottom: 200px;
+}
+.description{
+  width: 400px;
 }
 .item1{
   display: inline-block;
   border: 2px solid black;
-  width: 180px;
-  height: 180px;
-}
-.item2{
-  display: inline-block;
-  border: 2px solid #1b1b1b;
-  margin-left: 10px;
-  width: 180px;
-  height: 180px;
+  width: 600px;
+  height: 300px;
+  margin-left: 50px;
 }
 
 
@@ -106,6 +112,31 @@ nav{
 li{
   list-style: none;
 }
+
+
+
+/* forms */
+
+input {
+  border-radius: 0;
+  background: none;
+  width: 300px;
+  border: 1px solid #1b1b1b;
+  height: 30px;
+}
+
+.update-btn,
+.add-project-btn {
+  background-color:#1b1b1b;
+  border:none;
+  color: white;
+  text-align: center;
+  width: 150px;
+  height: auto;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
 
 /* Login overlay begins! */
 .login-overlay {
@@ -135,6 +166,7 @@ li{
   background: none;
   width: 300px;
 }
+
 
 .login-buttons {
   width: 75%;
@@ -244,8 +276,22 @@ div#projectList > div:first-child {
   cursor: pointer;
 }
 
+.logout-btn {
+  background-color:white;
+  color: #1b1b1b;
+  border: 1px solid #1b1b1b;
+  text-align: center;
+  padding: 5px 10px;
+  height: auto;
+  cursor: pointer;
+}
+
 .fa{
   color:#1b1b1b;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b9694bff6f7ccc518bbad8c4ba7a80802e752d3
 }
 
 #addProjectForm, #delProjectForm, #updateProjectForm  {
