@@ -31,51 +31,6 @@ app.get('/',(req,res)=> res.send('Hello! I am from the backendsssss'))
 });
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-// Products:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-//post method to write or create a document in mongodb
-app.post('/addProduct',(req,res)=>{
-  const dbProduct = new Product({
-    _id : new mongoose.Types.ObjectId,
-    name : req.body.name,
-    price: req.body.price,
-    image_url : req.body.imageUrl
-  });
-  //save to the database and notify the user
-  dbProduct.save().then(result=>{
-    res.send(result);
-  }).catch(err=>res.send(err));
-})
-
-//retrieve objects or documents from the database
-app.get('/allProductsFromDB',(req,res)=>{
-  Product.find().then(result=>{
-    res.send(result);
-  })
-})
-
-//patch is to update the details of the objects
-app.patch('/updateProduct/:id',(req,res)=>{
-  const idParam = req.params.id;
-  Product.findById(idParam,(err,product)=>{
-    if (product['user_id'] == req.body.userId){
-      const updatedProduct = {
-        name : req.body.name,
-        price : req.body.price,
-        image_url:req.body.image_url
-      }
-      Product.updateOne({_id:idParam}, updatedProduct).
-      then(result=>{
-        res.send(result);
-      }).catch(err=> res.send(err));
-    } else{
-      res.send('error: product not found')
-    }//else
-  })
-})
-
 //delete a product from database
 app.delete('/deleteProduct/:id',(req,res)=>{
   const idParam = req.params.id;
@@ -116,8 +71,7 @@ app.post('/addProject',(req,res)=>{
     title : req.body.title,
     description: req.body.description,
     image_url : req.body.image_url,
-    author: req.body.author,
-    date: req.body.date
+    author: req.body.author
   });
   //save to the database and notify the user
   dbProject.save().then(result=>{
@@ -182,12 +136,6 @@ app.get('/projects/p=:id',(req,res)=>{
     }
   }
 });
-
-
-
-
-
-
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //                                  Users
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
