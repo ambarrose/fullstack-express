@@ -21,6 +21,14 @@ nav{
   height:130px;
   border-bottom: 5px solid #1b1b1b;
 }
+
+.header-user {
+  text-transform: capitalize;
+}
+
+.fa-hamburger{
+  font-size: 35px;
+}
 .homePageSection{
   display: flex;
   justify-content: space-between;
@@ -235,10 +243,11 @@ div#projectList > div:first-child {
   background-color:#1b1b1b;
   color: white;
   text-align: center;
-  width:200px;
+  width:170px;
   height: auto;
   padding: 20px 0;
   cursor: pointer;
+  border:none;
 }
 
 .fa{
