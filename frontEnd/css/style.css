@@ -5,6 +5,7 @@ h1, h2{
 a {
   text-decoration: none;
 }
+
 .heading{
   position: relative;
   display: inline-block;
@@ -12,7 +13,6 @@ a {
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-
 /* new homePage section */
 nav{
   display: flex;
@@ -73,17 +73,26 @@ nav{
 }
 .accordion-body{
   display: inline-block;
-  width: 400px;
+}
+.about{
+  border-bottom: 3px solid #1b1b1b;
+}
+.project-section{
+  display: inline-block;
 }
 .project-name{
-  padding-bottom: 160px;
+  display: inline-block;
+  padding-bottom: 200px;
+}
+.description{
+  width: 400px;
 }
 .item1{
   display: inline-block;
   border: 2px solid black;
   width: 600px;
   height: 300px;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 
@@ -140,6 +149,7 @@ li{
   background: none;
   width: 300px;
 }
+
 
 .login-buttons {
   width: 75%;
@@ -250,8 +260,19 @@ div#projectList > div:first-child {
   border:none;
 }
 
+.logout-btn {
+  background-color:white;
+  color: #1b1b1b;
+  border: 1px solid #1b1b1b;
+  text-align: center;
+  padding: 5px 10px;
+  height: auto;
+  cursor: pointer;
+}
+
 .fa{
   color:#1b1b1b;
+
 }
 
 #addProjectForm, #delProjectForm, #updateProjectForm  {
