@@ -6,6 +6,7 @@ const projectSchema = new mongoose.Schema({
   description : String,
   image_url:String,
   author: String,
+  date: new Date(),
   user_id: {
     type:mongoose.Schema.Types.ObjectId,
     ref: 'User'

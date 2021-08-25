@@ -5,18 +5,18 @@ $(document).ready(function(){
 
 
 $('#result').hide();
-    $('#adminPage').hide();
+    $('.adminPage').hide();
 
 $('#home').click(function(){
   $('#result').hide();
-    $('#adminPage').hide();
-    $('#homePage').show();
+    $('.adminPage').hide();
+    $('.homePage').show();
 });
 
 $('#admin').click(function(){
-  $('#homePage').hide();
+  $('.homePage').hide();
     $('#result').hide();
-    $('#adminPage').show();
+    $('.adminPage').show();
 });
 
 let url;//declare url as a variable in es6
@@ -38,8 +38,8 @@ $.ajax({
 //view the products from database
 $('#view').click(function(){
   console.log(url);
-  $('#homePage').hide();
-  $('#adminPage').hide();
+  $('.homePage').hide();
+  $('.adminPage').hide();
   $('#result').show();
   $.ajax({
     url:`${url}/allProductsFromDB`,
@@ -181,6 +181,7 @@ $('#addProject').click(function(){
   let projectDecription = $('#projectDecription').val();
   let projectImg = $('#projectImg').val();
   let userid =  sessionStorage.getItem('userID');
+  let date = new Date(),
   console.log(userid);
   console.log(projectImg);
   if (projectTitle == ' ' || projectDecription == ' ' || projectImg == ' '){
@@ -194,7 +195,8 @@ $('#addProject').click(function(){
         description: projectDecription,
         image_url:projectImg,
         author:userid,
-        user_id:userid
+        user_id:userid,
+        date: new Date(),
       },
       success : function(project){
         console.log(project);
