@@ -5,18 +5,18 @@ $(document).ready(function(){
 
 
 $('#result').hide();
-    $('#adminPage').hide();
+    $('.adminPage').hide();
 
 $('#home').click(function(){
   $('#result').hide();
-    $('#adminPage').hide();
-    $('#homePage').show();
+    $('.adminPage').hide();
+    $('.homePage').show();
 });
 
 $('#admin').click(function(){
-  $('#homePage').hide();
+  $('.homePage').hide();
     $('#result').hide();
-    $('#adminPage').show();
+    $('.adminPage').show();
 });
 
 let url;//declare url as a variable in es6
@@ -38,8 +38,8 @@ $.ajax({
 //view the products from database
 $('#view').click(function(){
   console.log(url);
-  $('#homePage').hide();
-  $('#adminPage').hide();
+  $('.homePage').hide();
+  $('.adminPage').hide();
   $('#result').show();
   $.ajax({
     url:`${url}/allProductsFromDB`,
@@ -181,6 +181,7 @@ $('#addProject').click(function(){
   let projectDecription = $('#projectDecription').val();
   let projectImg = $('#projectImg').val();
   let userid =  sessionStorage.getItem('userID');
+  let date = new Date();
   console.log(userid);
   console.log(projectImg);
   if (projectTitle == ' ' || projectDecription == ' ' || projectImg == ' '){
@@ -194,7 +195,8 @@ $('#addProject').click(function(){
         description: projectDecription,
         image_url:projectImg,
         author:userid,
-        user_id:userid
+        user_id:userid,
+        date: new Date(),
       },
       success : function(project){
         console.log(project);
@@ -207,7 +209,9 @@ $('#addProject').click(function(){
   }//else
 });//addProduct
 
-//update the product
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+//update the product:::::::::::::::::::::::::::::::::::::::::::::::::::
 $('#updateProduct').click(function(){
   event.preventDefault();
   let productId = $('#productId').val();
@@ -286,7 +290,7 @@ $('#deleteProject').click(function(){
 
 })//deleteProduct
 
-
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // display users projects in list on admin page
 $('#submit').click(function(){
   $.ajax({
@@ -325,6 +329,23 @@ $('#submit').click(function(){
         projectListControl.value = projectsFromMongo[i].title;
 
       }
+
+      document.addEventListener('click', function(e) {
+          // define the target objects by class name
+          if (e.target.classList[3] === 'edit') {
+            // find a match between a button value and project name
+            for (var i = 0; i < projectsFromMongo.length; i++) {
+              if (projectsFromMongo[i].title === e.target.parentNode.value) {
+                selection = i;
+                console.log(projectsFromMongo[selection].title);
+                $('#addProjectForm').fadeOut(0)
+                $('#updateProjectForm').fadeIn(500)
+                // e.target.parentNode.parentNode.remove()
+                // deleteProject()
+              }
+            }
+          }
+        });// Event listner ends
 
       document.addEventListener('click', function(e) {
           // define the target objects by class name
@@ -375,10 +396,13 @@ $('#submit').click(function(){
   }) //ajax
 })
 
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 // Create project button
 $("#createBtn").click(function(){
-$('#addProjectForm').fadeIn()
+$('#addProjectForm').fadeIn(500)
+$('#updateProjectForm').fadeOut(0)
 // $('.admin-proj-section').fadeOut()
 })
 
