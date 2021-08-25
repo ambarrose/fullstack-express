@@ -127,6 +127,31 @@ li{
   list-style: none;
 }
 
+
+
+/* forms */
+
+input {
+  border-radius: 0;
+  background: none;
+  width: 300px;
+  border: 1px solid #1b1b1b;
+  height: 30px;
+}
+
+.update-btn,
+.add-project-btn {
+  background-color:#1b1b1b;
+  border:none;
+  color: white;
+  text-align: center;
+  width: 150px;
+  height: auto;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+
 /* Login overlay begins! */
 .login-overlay {
   position: fixed;
@@ -277,7 +302,10 @@ div#projectList > div:first-child {
 
 .fa{
   color:#1b1b1b;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7b9694bff6f7ccc518bbad8c4ba7a80802e752d3
 }
 
 #addProjectForm, #delProjectForm, #updateProjectForm  {
