@@ -70,21 +70,35 @@ nav{
   font-size: 100px;
   text-align: left;
   border: none;
+  height:110px;
 }
 .accordion-body{
   display: inline-block;
+  height:500px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
 }
 .about{
   border-bottom: 3px solid #1b1b1b;
 }
-.project-section{
+.project1,
+.project2{
   display: inline-block;
+  border-bottom: 3px solid #1b1b1b;
 }
 .project-name{
-  display: inline-block;
-  padding-bottom: 200px;
+  margin-top: 20px;
 }
 .description{
+  display: inline-block;
   width: 400px;
 }
 .item1{
@@ -120,6 +134,31 @@ nav{
 li{
   list-style: none;
 }
+
+
+
+/* forms */
+
+input {
+  border-radius: 0;
+  background: none;
+  width: 300px;
+  border: 1px solid #1b1b1b;
+  height: 30px;
+}
+
+.update-btn,
+.add-project-btn {
+  background-color:#1b1b1b;
+  border:none;
+  color: white;
+  text-align: center;
+  width: 150px;
+  height: auto;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
 
 /* Login overlay begins! */
 .login-overlay {
@@ -270,9 +309,18 @@ div#projectList > div:first-child {
   cursor: pointer;
 }
 
+.logout-btn {
+  background-color:white;
+  color: #1b1b1b;
+  border: 1px solid #1b1b1b;
+  text-align: center;
+  padding: 5px 10px;
+  height: auto;
+  cursor: pointer;
+}
+
 .fa{
   color:#1b1b1b;
-
 }
 
 #addProjectForm, #delProjectForm, #updateProjectForm  {

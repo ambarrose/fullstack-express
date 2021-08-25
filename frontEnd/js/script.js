@@ -41,6 +41,7 @@ $('#addProject').click(function(){
   let projectTitle = $('#projectTitle').val();
   let projectDecription = $('#projectDecription').val();
   let projectImg = $('#projectImg').val();
+  let userid = sessionStorage.getItem('userID');
   let userid =  sessionStorage.getItem('userID');
   console.log(userid);
   console.log(projectImg);
@@ -69,7 +70,9 @@ $('#addProject').click(function(){
   }//else
 });//addProduct
 
-//update the product
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+//update the product:::::::::::::::::::::::::::::::::::::::::::::::::::
 $('#updateProduct').click(function(){
   event.preventDefault();
   let productId = $('#productId').val();
@@ -148,7 +151,7 @@ $('#deleteProject').click(function(){
 
 })//deleteProduct
 
-
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // display users projects in list on admin page
 $('#submit').click(function(){
   $.ajax({
@@ -189,6 +192,25 @@ $('#submit').click(function(){
       }
 
       document.addEventListener('click', function(e) {
+
+          // define the target objects by class name
+          if (e.target.classList[3] === 'edit') {
+            // find a match between a button value and project name
+            for (var i = 0; i < projectsFromMongo.length; i++) {
+              if (projectsFromMongo[i].title === e.target.parentNode.value) {
+                selection = i;
+                console.log(projectsFromMongo[selection].title);
+                $('#addProjectForm').fadeOut(0)
+                $('#updateProjectForm').fadeIn(500)
+                // e.target.parentNode.parentNode.remove()
+                // deleteProject()
+              }
+            }
+          }
+        });// Event listner ends
+
+      document.addEventListener('click', function(e) {
+          // define the target objects by class name
 
           if (e.target.classList[2] === 'delete') {
             // find a match between a button value and project name
@@ -254,7 +276,9 @@ $('#submit').click(function(){
 
 // Create project button
 $("#createBtn").click(function(){
-$('#addProjectForm').fadeIn()
+$('#addProjectForm').fadeIn(500)
+$('#updateProjectForm').fadeOut(0)
+
 // $('.admin-proj-section').fadeOut()
 })
 
