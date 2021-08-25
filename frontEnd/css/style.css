@@ -62,21 +62,26 @@ nav{
   font-size: 100px;
   text-align: left;
   border: none;
+  height:110px;
 }
 .accordion-body{
   display: inline-block;
+  height:500px;
+  overflow: auto;
 }
 .about{
   border-bottom: 3px solid #1b1b1b;
 }
-.project-section{
+.project1,
+.project2{
   display: inline-block;
+  border-bottom: 3px solid #1b1b1b;
 }
 .project-name{
-  display: inline-block;
-  padding-bottom: 200px;
+  margin-top: 20px;
 }
 .description{
+  display: inline-block;
   width: 400px;
 }
 .item1{
