@@ -1,3 +1,11 @@
+/* colours
+black #1b1b1b
+white #f4ead1 */
+
+
+body{
+  background-color: #f4ead1;
+}
 
 h1, h2{
   font-family: sans-serif;
@@ -6,13 +14,13 @@ a {
   text-decoration: none;
 }
 
-.heading{
+/* .heading{
   position: relative;
   display: inline-block;
   background: purple;
   margin-bottom: 20px;
   text-transform: uppercase;
-}
+} */
 /* new homePage section */
 nav{
   display: flex;
@@ -35,11 +43,8 @@ nav{
   align-items: center;
   height:80px;
   border-bottom: 5px solid #1b1b1b;
-}
-.home-projects{
-  height:60px;
-  border-bottom: 5px solid #1b1b1b;
-}
+} */
+
 .link-admin{
   text-align: center;
   color: #1b1b1b;
@@ -55,59 +60,92 @@ nav{
   color: #f7f7f7;
 }
 
-#accordionExample {
-  border: none;
-}
-.accordion-item{
+
+.home-projects{
+  height:60px;
   border-bottom: 5px solid #1b1b1b;
 }
-#accordianBtn{
+.accordian{
   border: none;
-  background-color: #fff;
-  width: 1115px;
+  box-shadow:none;
+}
+#accordionExample {
+  border: none;
+  box-shadow:none;
+}
+
+.accordion-item{
+  border: none;
+  border-radius:none;
+  border-bottom: 5px solid #1b1b1b;
+  background-color: #f4ead1;
+}
+
+#accordionBtn{
+  border: none;
+  background-color: #f4ead1;
+  box-shadow:none;
 }
 .accordion-title{
   font-size: 100px;
   text-align: left;
   border: none;
+  box-shadow:none;
   height:110px;
 }
+
 .accordion-body{
   display: inline-block;
+  border-radius: none;
   height:500px;
   overflow: scroll;
+  border-radius: none;
   overflow-x: hidden;
+  border: none;
 }
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
-/* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+    background: #f4ead1;
+}
+
+.collapse {
+  border-radius: none;
 }
 .about{
   border-bottom: 3px solid #1b1b1b;
 }
-.project1,
-.project2{
+.project{
   display: inline-block;
   border-bottom: 3px solid #1b1b1b;
+}
+.project:last-of-type{
+  border: none;
 }
 .project-name{
   margin-top: 20px;
 }
 .description{
+  position: relative;
   display: inline-block;
   width: 400px;
 }
 .item1{
   display: inline-block;
-  border: 2px solid black;
-  width: 600px;
+  float: right;
+  border: none;
+  border-radius:none;
+  width: 500px;
   height: 300px;
-  margin-left: 50px;
+  margin-left: 140px;
 }
+
+button {
+  border: none;
+}
+
 
 
 /* original home page */
@@ -151,7 +189,7 @@ input {
 .add-project-btn {
   background-color:#1b1b1b;
   border:none;
-  color: white;
+  color: #f4ead1;
   text-align: center;
   width: 150px;
   height: auto;
@@ -165,7 +203,7 @@ input {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: white;
+  background: #f4ead1;
   margin: auto;
   left:0;
   top:0;
@@ -201,7 +239,7 @@ input {
 .login-btn {
   background-color:#1b1b1b;
   border:none;
-  color: white;
+  color: #f4ead1;
   text-align: center;
   width: 100px;
   height: auto;
@@ -209,9 +247,9 @@ input {
   cursor: pointer;
 }
 .register-btn {
-  background-color: white;
+  background-color: #f4ead1;
   border: 1px solid #1b1b1b;
-  color: white;
+  color: #f4ead1;
   text-align: center;
   width: 100px;
   height: auto;
@@ -226,7 +264,7 @@ input {
   width: 400px;
   height: 500px;
   position: fixed;
-  background: white;
+  background: #f4ead1;
   z-index: 1000;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
