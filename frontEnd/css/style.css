@@ -19,6 +19,7 @@ a {
   margin-bottom: 20px;
   text-transform: uppercase;
 } */
+
 /* new homePage section */
 nav{
   display: flex;
@@ -41,7 +42,7 @@ nav{
   align-items: center;
   height:80px;
   border-bottom: 5px solid #1b1b1b;
-} */
+}
 
 .link-admin{
   text-align: center;
@@ -105,6 +106,7 @@ nav{
 }
 .project{
   display: inline-block;
+  width: 100%;
   border-bottom: 3px solid #1b1b1b;
 }
 .project:last-of-type{
