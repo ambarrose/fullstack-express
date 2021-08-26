@@ -239,8 +239,7 @@ $('#deleteProject').click(function(){
   console.log(productId);
   if (productId == ''){
     alert('Please enter the product id to delete the product');
-  } else {
-  })
+  } else {}
 
 
   // Projects Controls::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -317,6 +316,53 @@ $('#deleteProject').click(function(){
 
   // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
   // display users projects in list on admin page
+  // User login::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  $('#submit').click(function() {
+    event.preventDefault();
+    let username = $('#username').val();
+    let password = $('#password').val();
+
+    console.log(username,
+    password); //remove after development for security
+
+    if (username == '' || password == '') {
+      alert('Please enter all details');
+    } else {
+      $.ajax({
+        url: `${url}/loginUser`,
+        type: 'POST',
+        data: {
+          username: username,
+          password: password
+        },
+        success: function(user) {
+          console.log(user);
+
+          if (user == 'user not found. Please register') {
+            alert(
+              'user not found. Please enter correct data or register as a new user'
+              );
+          } else if (user == 'not authorized') {
+            alert('Please  try with correct details');
+            $('#username').val('');
+            $('#password').val('');
+          } else {
+            sessionStorage.setItem('userID', user['_id']);
+            sessionStorage.setItem('userName', user['username']);
+            sessionStorage.setItem('userEmail', user['email']);
+            $('#loginOverlay').css('display', 'none')
+          }
+        }, //success
+        error: function() {
+          console.log('error: cannot call api');
+        } //errror
+
+      }) //ajax
+    } //if else
+  })
+
+
+
   $('#submit').click(function() {
     $.ajax({
       url: `${url}/allProjectsFromDB`,
@@ -562,50 +608,6 @@ $('#confirmUpdate').click(function() {
 
   }) //r-submit click
 
-  // User login::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-  $('#submit').click(function() {
-    event.preventDefault();
-    let username = $('#username').val();
-    let password = $('#password').val();
-
-    console.log(username,
-    password); //remove after development for security
-
-    if (username == '' || password == '') {
-      alert('Please enter all details');
-    } else {
-      $.ajax({
-        url: `${url}/loginUser`,
-        type: 'POST',
-        data: {
-          username: username,
-          password: password
-        },
-        success: function(user) {
-          console.log(user);
-
-          if (user == 'user not found. Please register') {
-            alert(
-              'user not found. Please enter correct data or register as a new user'
-              );
-          } else if (user == 'not authorized') {
-            alert('Please  try with correct details');
-            $('#username').val('');
-            $('#password').val('');
-          } else {
-            sessionStorage.setItem('userID', user['_id']);
-            sessionStorage.setItem('userName', user['username']);
-            sessionStorage.setItem('userEmail', user['email']);
-            $('#loginOverlay').css('display', 'none')
-          }
-        }, //success
-        error: function() {
-          console.log('error: cannot call api');
-        } //errror
-
-      }) //ajax
-    } //if else
-  })
 
   //logout
   $('#logout').click(function() {
