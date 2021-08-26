@@ -54,22 +54,29 @@ nav{
   background: #1b1b1b;
   color: #f7f7f7;
 }
-
+.accordian{
+  border: none;
+  box-shadow:none;
+}
 #accordionExample {
   border: none;
+  box-shadow:none;
 }
 .accordion-item{
+  border: none;
+  border-radius:none;
   border-bottom: 5px solid #1b1b1b;
 }
-#accordianBtn{
+#accordionBtn{
   border: none;
   background-color: #fff;
-  width: 1115px;
+  box-shadow:none;
 }
 .accordion-title{
   font-size: 100px;
   text-align: left;
   border: none;
+  box-shadow:none;
   height:110px;
 }
 .accordion-body{
@@ -89,10 +96,12 @@ nav{
 .about{
   border-bottom: 3px solid #1b1b1b;
 }
-.project1,
-.project2{
+.project{
   display: inline-block;
   border-bottom: 3px solid #1b1b1b;
+}
+.project:last-of-type{
+  border: none;
 }
 .project-name{
   margin-top: 20px;
