@@ -240,7 +240,7 @@ $('#deleteProject').click(function(){
   if (productId == ''){
     alert('Please enter the product id to delete the product');
   } else {
-  })
+  };
 
 
   // Projects Controls::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
