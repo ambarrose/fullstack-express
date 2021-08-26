@@ -46,22 +46,29 @@ nav{
   background: #1b1b1b;
   color: #f7f7f7;
 }
-
+.accordian{
+  border: none;
+  box-shadow:none;
+}
 #accordionExample {
   border: none;
+  box-shadow:none;
 }
 .accordion-item{
+  border: none;
+  border-radius:none;
   border-bottom: 5px solid #1b1b1b;
 }
-#accordianBtn{
+#accordionBtn{
   border: none;
   background-color: #fff;
-  width: 1115px;
+  box-shadow:none;
 }
 .accordion-title{
   font-size: 100px;
   text-align: left;
   border: none;
+  box-shadow:none;
   height:110px;
 }
 .accordion-body{
@@ -81,10 +88,12 @@ nav{
 .about{
   border-bottom: 3px solid #1b1b1b;
 }
-.project1,
-.project2{
+.project{
   display: inline-block;
   border-bottom: 3px solid #1b1b1b;
+}
+.project:last-of-type{
+  border: none;
 }
 .project-name{
   margin-top: 20px;
@@ -126,6 +135,31 @@ nav{
 li{
   list-style: none;
 }
+
+
+
+/* forms */
+
+input {
+  border-radius: 0;
+  background: none;
+  width: 300px;
+  border: 1px solid #1b1b1b;
+  height: 30px;
+}
+
+.update-btn,
+.add-project-btn {
+  background-color:#1b1b1b;
+  border:none;
+  color: white;
+  text-align: center;
+  width: 150px;
+  height: auto;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
 
 /* Login overlay begins! */
 .login-overlay {
@@ -277,7 +311,6 @@ div#projectList > div:first-child {
 
 .fa{
   color:#1b1b1b;
-
 }
 
 #addProjectForm, #delProjectForm, #updateProjectForm  {
