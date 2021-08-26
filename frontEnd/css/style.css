@@ -2,9 +2,11 @@
 black #1b1b1b
 white #f4ead1 */
 
+
 body{
   background-color: #f4ead1;
 }
+
 h1, h2{
   font-family: sans-serif;
 }
@@ -57,6 +59,8 @@ nav{
   background: #1b1b1b;
   color: #f7f7f7;
 }
+
+
 .home-projects{
   height:60px;
   border-bottom: 5px solid #1b1b1b;
@@ -69,12 +73,14 @@ nav{
   border: none;
   box-shadow:none;
 }
+
 .accordion-item{
   border: none;
   border-radius:none;
   border-bottom: 5px solid #1b1b1b;
   background-color: #f4ead1;
 }
+
 #accordionBtn{
   border: none;
   background-color: #f4ead1;
@@ -87,11 +93,15 @@ nav{
   box-shadow:none;
   height:110px;
 }
+
 .accordion-body{
   display: inline-block;
+  border-radius: none;
   height:500px;
   overflow: scroll;
+  border-radius: none;
   overflow-x: hidden;
+  border: none;
 }
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */
@@ -99,6 +109,10 @@ nav{
 }
 ::-webkit-scrollbar-thumb {
     background: #f4ead1;
+}
+
+.collapse {
+  border-radius: none;
 }
 .about{
   border-bottom: 3px solid #1b1b1b;
@@ -127,6 +141,11 @@ nav{
   height: 300px;
   margin-left: 140px;
 }
+
+button {
+  border: none;
+}
+
 
 
 /* original home page */
