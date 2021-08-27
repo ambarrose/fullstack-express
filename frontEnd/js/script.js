@@ -1,7 +1,8 @@
+console.log('script'); //testing if script.js is working
+console.log(sessionStorage);
 
-// console.log(sessionStorage);
-let author
 $(document).ready(function() {
+
 
   $('#result').hide();
   $('.adminPage').hide();
@@ -31,214 +32,6 @@ $(document).ready(function() {
     error: function(error) {
       console.log(error);
     }
-
-  })//ajax
-})//view button click
-
-// Products Controls::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-$('#addProduct').click(function(){
-  event.preventDefault();
-  let name = $('#a-name').val();
-  let price = $('#a-price').val();
-  let image_url = $('#a-imageurl').val();
-  let userid =  sessionStorage.getItem('userID');
-  console.log(userid);
-  console.log(name,price, image_url);
-  if (name == '' || price == '' || userid == ''){
-    alert('Please enter all details');
-  } else {
-    $.ajax({
-      url : `${url}/addProduct`,
-      type : 'POST',
-      data :{
-        name: name,
-        price: price,
-        image_url:image_url,
-        user_id:userid
-      },
-      success : function(product){
-        console.log(product);
-        alert ('product added');
-      },
-      error : function(){
-        console.log('error: cannot call api');
-      }//error
-    })//ajax
-  }//else
-});//addProduct
-
-//update the product
-$('#updateProduct').click(function(){
-  event.preventDefault();
-  let productId = $('#productId').val();
-  let productName = $('#productName').val();
-  let productPrice = $('#productPrice').val();
-  let imageurl = $('#imageurl').val();
-  let userid =sessionStorage.getItem('userID');
-  console.log(productId, productName, productPrice, imageurl, userid);
-  if ( productId == ''){
-    alert('Please enter product id for updating');
-  } else {
-    $.ajax({
-      url: `${url}/updateProduct/${productId}`,
-      type: 'PATCH',
-      data:{
-        name : productName,
-        price : productPrice,
-        image_url : imageurl,
-        user_id: userid
-      },
-      success: function(data){
-        console.log(data);
-        if(data == '401 error: user has no permission to update'){
-          alert('401 error: user has no permission to update');
-
-        } else {
-          alert('updated');
-        }//else
-
-        $('#productId').val('');
-        $('#productName').val('');
-        $('#productPrice').val('');
-        $('#imageurl').val('');
-
-
-      }, //success
-      error: function(){
-        console.log('error:cannot call api');
-      }//error
-    })//ajax
-  }//if
-})//updateProduct
-
-//delete product
-$('#deleteProduct').click(function(){
-  event.preventDefault();
-  if (!sessionStorage['userID']){
-    alert('401 permission denied');
-    return;
-  };
-  let productId = $('#delProductId').val();
-  console.log(productId);
-  if (productId == ''){
-    alert('Please enter the product id to delete the product');
-  } else {
-    $.ajax({
-      url : `${url}/deleteProduct/${productId}`,
-      type:'DELETE',
-      data :{
-        user_id : sessionStorage['userID']
-      },
-      success : function(data){
-        console.log(data);
-        if (data =='deleted'){
-          alert('deleted');
-          $('#delProductId').val('');
-        } else {
-          alert('Enter a valid id');
-        } //else
-      }, //success
-      error:function(){
-        console.log('error: cannot call api');
-      }//error
-    })//ajax
-  }//if
-
-})//deleteProduct
-// Project controls ends
-
-// Projects Controls::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-$('#addProject').click(function(){
-  event.preventDefault();
-  let projectTitle = $('#projectTitle').val();
-  let projectDecription = $('#projectDecription').val();
-  let projectImg = $('#projectImg').val();
-  let userid = sessionStorage.getItem('userID');
-  console.log(userid);
-  console.log(projectImg);
-  if (projectTitle == ' ' || projectDecription == ' ' || projectImg == ' '){
-    alert('Please enter all details');
-  } else {
-    $.ajax({
-      url : `${url}/addProject`,
-      type : 'POST',
-      data :{
-        title: projectTitle,
-        description: projectDecription,
-        image_url:projectImg,
-        author:userid,
-        user_id:userid,
-        date: new Date(),
-      },
-      success : function(project){
-        console.log(project);
-        alert ('project added');
-      },
-      error : function(){
-        console.log('error: cannot call api');
-      }//error
-    })//ajax
-  }//else
-});//addProduct
-
-// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-//update the product:::::::::::::::::::::::::::::::::::::::::::::::::::
-$('#updateProduct').click(function(){
-  event.preventDefault();
-  let productId = $('#productId').val();
-  let productName = $('#productName').val();
-  let productPrice = $('#productPrice').val();
-  let imageurl = $('#imageurl').val();
-  let userid =sessionStorage.getItem('userID');
-  console.log(productId, productName, productPrice, imageurl, userid);
-  if ( productId == ''){
-    alert('Please enter product id for updating');
-  } else {
-    $.ajax({
-      url: `${url}/updateProduct/${productId}`,
-      type: 'PATCH',
-      data:{
-        name : productName,
-        price : productPrice,
-        image_url : imageurl,
-        user_id: userid
-      },
-      success: function(data){
-        console.log(data);
-        if(data == '401 error: user has no permission to update'){
-          alert('401 error: user has no permission to update');
-
-        } else {
-          alert('updated');
-        }//else
-
-        $('#projectId').val('');
-        $('#projectTitle').val('');
-        $('#projectDecription').val('');
-        $('#projectImg').val('');
-
-
-      }, //success
-      error: function(){
-        console.log('error:cannot call api');
-      }//error
-    })//ajax
-  }//if
-})//updateProduct
-
-//delete product
-$('#deleteProject').click(function(){
-  event.preventDefault();
-  if (!sessionStorage['userID']){
-    alert('401 permission denied');
-    return;
-  };
-  let projectId = $('#delProductId').val();
-  console.log(productId);
-  if (productId == ''){
-    alert('Please enter the product id to delete the product');
-  } else {
   })
 
 
@@ -249,7 +42,6 @@ $('#deleteProject').click(function(){
     let projectDecription = $('#projectDecription').val();
     let projectImg = $('#projectImg').val();
     let userid = sessionStorage.getItem('userID');
-    let author = sessionStorage.getItem('userName')
     console.log(userid);
     console.log(projectImg);
     if (projectTitle == ' ' || projectDecription == ' ' || projectImg ==
@@ -263,7 +55,7 @@ $('#deleteProject').click(function(){
           title: projectTitle,
           description: projectDecription,
           image_url: projectImg,
-          author: author,
+          author: userid,
           user_id: userid,
 
         },
@@ -354,7 +146,7 @@ $('#deleteProject').click(function(){
           projectListControl.value = projectsFromMongo[i].title;
 
         }
-        // Update Event Listener::::::::::::::::::::::::::::::::::::::::::::::::
+// Update Event Listener::::::::::::::::::::::::::::::::::::::::::::::::
         document.addEventListener('click', function(e) {
           // define the target objects by class name
           if (e.target.classList[3] === 'edit') {
@@ -370,14 +162,13 @@ $('#deleteProject').click(function(){
                 $('#updateProjectForm').fadeIn(500)
                 // e.target.parentNode.parentNode.remove()
                 updateProject()
-                $('.oldTitle').text(projectsFromMongo[
-                    selection]
+                $('.oldTitle').text(projectsFromMongo[selection]
                   .title)
               }
             }
           }
         }); // Event listner ends
-        // Delete Event Listener:::::::::::::::::::::::::::::::::::::::::::::::::
+// Delete Event Listener:::::::::::::::::::::::::::::::::::::::::::::::::
         document.addEventListener('click', function(e) {
           // define the target objects by class name
 
@@ -404,11 +195,11 @@ $('#deleteProject').click(function(){
             })
 
           } // if target ends
-        }); // Event listner ends
+  }); // Event listner ends
 
 
 
-        // Delete Project Ajax Call::::::::::::::::::::::::::::::::::::::::
+// Delete Project Ajax Call::::::::::::::::::::::::::::::::::::::::
 
         function deleteProject() {
           event.preventDefault();
@@ -438,58 +229,53 @@ $('#deleteProject').click(function(){
         } // Delete Project Funtion ENDS
 
 
-        //update the product:::::::::::::::::::::::::::::::::::::::::::::::::::
-        function updateProject() {
-          $('#confirmUpdate').click(function() {
-            event.preventDefault();
-            let projectId = projectsFromMongo[selection]._id;
-            let projectTitle = $('#upProjectTitle').val();
-            let projectDecription = $('#upProjectDecription')
-              .val();
-            let projectImg = $('#upProjectImg').val();
-            let userid = sessionStorage.getItem('userID');
-            let author = sessionStorage.getItem('userName')
-            // console.log(productId, productName, productPrice, imageurl, userid);
-            // if (productId == '') {
-            //   alert('Please enter product id for updating');
-            // } else {
-            $.ajax({
-              url: `${url}/updateProject/${projectId}`,
-              type: 'PATCH',
-              data: {
-                title: projectTitle,
-                description: projectDecription,
-                image_url: projectImg,
-                author: author,
-                user_id: userid,
-              },
-              success: function(data) {
-                console.log(data);
-                if (data ==
-                  '401 error: user has no permission to update'
-                  ) {
-                  alert(
-                    '401 error: user has no permission to update'
-                    );
+//update the product:::::::::::::::::::::::::::::::::::::::::::::::::::
+function updateProject(){
+$('#confirmUpdate').click(function() {
+  event.preventDefault();
+  let projectId = projectsFromMongo[selection]._id;
+  let projectTitle = $('#upProjectTitle').val();
+  let projectDecription = $('#upProjectDecription').val();
+  let projectImg = $('#upProjectImg').val();
+  let userid = sessionStorage.getItem('userID');
+  // console.log(productId, productName, productPrice, imageurl, userid);
+  // if (productId == '') {
+  //   alert('Please enter product id for updating');
+  // } else {
+    $.ajax({
+      url: `${url}/updateProject/${projectId}`,
+      type: 'PATCH',
+      data: {
+        title: projectTitle,
+        description: projectDecription,
+        image_url: projectImg,
+        author: userid,
+        user_id: userid,
+      },
+      success: function(data) {
+        console.log(data);
+        if (data ==
+          '401 error: user has no permission to update') {
+          alert('401 error: user has no permission to update');
 
-                } else {
-                  alert('updated');
-                } //else
+        } else {
+          alert('updated');
+        } //else
 
-                $('#projectId').val('');
-                $('#projectTitle').val('');
-                $('#projectDecription').val('');
-                $('#projectImg').val('');
+        $('#projectId').val('');
+        $('#projectTitle').val('');
+        $('#projectDecription').val('');
+        $('#projectImg').val('');
 
 
-              }, //success
-              error: function() {
-                console.log('error:cannot call api');
-              } //error
-            }) //ajax
-            // } //if
-          }) //updateProduct click function
-        } //update product function
+      }, //success
+      error: function() {
+        console.log('error:cannot call api');
+      } //error
+    }) //ajax
+  // } //if
+}) //updateProduct click function
+} //update product function
 
 
       },
@@ -575,7 +361,7 @@ $('#deleteProject').click(function(){
     let password = $('#password').val();
 
     console.log(username,
-      password); //remove after development for security
+    password); //remove after development for security
 
     if (username == '' || password == '') {
       alert('Please enter all details');
@@ -593,7 +379,7 @@ $('#deleteProject').click(function(){
           if (user == 'user not found. Please register') {
             alert(
               'user not found. Please enter correct data or register as a new user'
-            );
+              );
           } else if (user == 'not authorized') {
             alert('Please  try with correct details');
             $('#username').val('');
@@ -623,9 +409,8 @@ $('#deleteProject').click(function(){
   });
   $('.header-user').text(sessionStorage.getItem('userName'));
 
-
   // Update Home Page Starts::::::::::::::::::::::::::::::::::::::::::::::::::::::
-  $('#home').one("click", function() {
+  window.onclick = function(){
     console.log("clicked window");
     $.ajax({
       url: `${url}/allProjectsFromDB`,
@@ -636,32 +421,12 @@ $('#deleteProject').click(function(){
         var i;
         // document.getElementById('projectList').innerHTML ="";
         for (i = 0; i < projectsFromMongo.length; i++) {
-          console.log(projectsFromMongo[i].author);
-
-          function updateProjectsHome(){
-            var project = document.createElement('div');
-            project.classList.add('project');
-            adminSpace.append(project);
-            project.innerHTML = `
-            <h2 class="project-name">${projectsFromMongo[i].title}</h2>
-            <p class="description">${projectsFromMongo[i].description}</p>
-            <div class="item1">${projectsFromMongo[i].description}</div>`
-          }
-
-          var adminSpace
-          if (projectsFromMongo[i].author == "kris") {
-            adminSpace = document.querySelector('#kris');
-            updateProjectsHome()
-
-          } else if (projectsFromMongo[i].author == "ambar") {
-            adminSpace = document.querySelector('#ambar');
-            updateProjectsHome()
-
-          } else if (projectsFromMongo[i].author == "toby") {
-            adminSpace = document.querySelector('#toby')
-            updateProjectsHome()
-          }
-
+          document.querySelector('#filler').innerHTML = `
+          <div class="project1">
+            <h2 class="project-name">yooooooo</h2>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="item1"></div>
+         </div>`
 
         }
 
@@ -670,11 +435,10 @@ $('#deleteProject').click(function(){
       error: function() {
 
       }
-    }
-  ) //ajax
+    }) //ajax
 
 
-});
+  }
 
 
 }); //document.ready
