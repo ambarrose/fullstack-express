@@ -147,7 +147,7 @@ app.post('/registerUser',(req,res)=>{
       res.send('username taken already. Please try another name');
 
     } else {
-      const hash = bcrypt.hashSync(req.body.password);//encrypts MONGO_PASSWORD
+      const hash = bcrypt.hashSync(req.body.password); //encrypts MONGO_PASSWORD
       const user = new User({
         _id : new mongoose.Types.ObjectId,
         username : req.body.username,
