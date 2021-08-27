@@ -409,4 +409,34 @@ $('#confirmUpdate').click(function() {
   });
   $('.header-user').text(sessionStorage.getItem('userName'));
 
+  // window.onclick = function(){
+  //   console.log("clicked window");
+  //   $.ajax({
+  //     url: `${url}/allProjectsFromDB`,
+  //     type: 'GET',
+  //     dataType: 'json',
+  //     success: function(projectsFromMongo) {
+  //
+  //       var i;
+  //       // document.getElementById('projectList').innerHTML ="";
+  //       for (i = 0; i < projectsFromMongo.length; i++) {
+  //         document.querySelector('#filler').innerHTML = `
+  //         <div class="project1">
+  //           <h2 class="project-name">yooooooo</h2>
+  //           <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  //           <div class="item1"></div>
+  //        </div>`
+  //
+  //       }
+  //
+  //
+  //     },
+  //     error: function() {
+  //
+  //     }
+  //   }) //ajax
+  //
+  //
+  // }
+
 }); //document.ready
