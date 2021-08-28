@@ -22,7 +22,7 @@
   </nav>
 
 
-  <!--  ::::::::::::::::::::::::: Login Overlay :::::::::::::::::::::::::: -->
+  <!--  ::::::::::::::::::::::::: Login Overlay ::::::::::::::::::::::::::::: -->
 
   <div class="login-overlay" id="loginOverlay">
     <div class="user-login">
@@ -76,7 +76,7 @@
   <!-- login overlay ends -->
 
 
-  <!-- ::::::::::::::::::::::::::  Add Project  ::::::::::::::::::::::::::::: -->
+  <!-- ::::::::::::::::::::::::::  Add Project  :::::::::::::::::::::::::::: -->
 
   <form id="addProjectForm" class=" py-5 px-5">
     <h1>Add project</h1> <br>
@@ -128,7 +128,7 @@
   </div>
 
   <!-- Delete a project -->
-  <!-- <form id="delProjectForm" class="py-5 px-5">
+  <form id="delProjectForm" class="py-5 px-5">
     <label class="mr-5 " for="delprojectId"> Enter project Id to delete: </label>
     <input type="text" class="ml-5 rounded-pill" id="delprojectId" name="inputId">
     <br><br>
@@ -149,28 +149,27 @@
     </div>
   </div>
 
-
   <!-- delete confirmation overlay:::::::::::::::::::::::::::::::::::: -->
-  <div class="modal delete-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title">Are you sure?</h3>
-          <!-- Thoughts: commented out close button because you can already click close or the window to close modal -->
-          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span id='closeDelOverlay' aria-hidden="true">&times;</span>
-          </button> -->
-        </div>
-        <div class="modal-body">
-          <p>The project will be permanently deleted.</p>
-        </div>
-        <div class="modal-footer">
-          <button id="confirmDelete" type="button" class="login-btn">Delete</button>
-          <button id="closeDelOverlay" type="button" class="register-btn" data-dismiss="modal">Close</button>
-        </div>
+<div class="modal delete-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Are you sure?</h3>
+        <!-- Thoughts: commented out close button because you can already click close or the window to close modal -->
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span id='closeDelOverlay' aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <p>The project will be permanently deleted.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="confirmDelete" type="button" class="login-btn">Delete</button>
+        <button id="closeDelOverlay" type="button" class="register-btn" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
 
 
 

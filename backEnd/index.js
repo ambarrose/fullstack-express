@@ -29,40 +29,9 @@ app.get('/',(req,res)=> res.send('Hello! I am from the backendsssss'))
 .catch(err=>{
   console.log(`DBConnectionError:${err.message}`);
 });
-// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-//delete a product from database
-app.delete('/deleteProduct/:id',(req,res)=>{
-  const idParam = req.params.id;
-  Product. findOne({_id:idParam}, (err,product)=>{
-    if(product){
-      Product.deleteOne({_id:idParam},err=>{
-        res.send('deleted');
-    });
-    } else {
-      res.send('not found');
-    } //else
-  }).catch(err=> res.send(err));
-});//delete
 
 
-//get method to access data from Products.json
-//routing to the endpoint
-app.get('/allProducts', (req,res)=>{
-  res.json(product);
-})
-
-app.get('/products/p=:id',(req,res)=>{
-  const idParam = req.params.id;
-  for (let i =0; i<product.length; i++){
-    if (idParam.toString() === product[i].id.toString()){
-      res.json(product[i]);
-    }
-  }
-});
-// products ends
-
-// Projects:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// Project Methods:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 //post method to write or create a document in mongodb
 app.post('/addProject',(req,res)=>{
@@ -137,7 +106,7 @@ app.get('/projects/p=:id',(req,res)=>{
   }
 });
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//                                  Users
+//                          User Methods
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // register a new user
 app.post('/registerUser',(req,res)=>{
@@ -147,7 +116,7 @@ app.post('/registerUser',(req,res)=>{
       res.send('username taken already. Please try another name');
 
     } else {
-      const hash = bcrypt.hashSync(req.body.password);//encrypts MONGO_PASSWORD
+      const hash = bcrypt.hashSync(req.body.password); //encrypts MONGO_PASSWORD
       const user = new User({
         _id : new mongoose.Types.ObjectId,
         username : req.body.username,
